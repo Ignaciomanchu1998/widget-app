@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MenuItem {
   final String title;
@@ -19,12 +19,12 @@ const appMenuItems = <MenuItem>[
     title: 'Botones',
     subTitle: 'A button with a filled background color',
     route: '/buttons',
-    icon: CupertinoIcons.square_fill,
+    icon: Icons.radio_button_checked,
   ),
   MenuItem(
     title: 'Tarjetas',
     subTitle: 'A button with a outlined border',
     route: '/card',
-    icon: CupertinoIcons.square,
+    icon: Icons.square,
   ),
 ];
