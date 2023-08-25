@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:widgets_app/presentation/screens/button/button_screen.dart';
 
 import '../../../config/menu/menu_item.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_screen';
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -52,7 +56,7 @@ class _ListTitle extends StatelessWidget {
         Icons.chevron_right,
         color: colors.primary,
       ),
-      onTap: () => Navigator.pushNamed(context, item.route),
+      onTap: () => context.pushNamed(ButtonScreen.name),
     );
   }
 }
