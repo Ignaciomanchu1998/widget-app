@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ButtonScreen extends StatelessWidget {
   static const String name = 'button_screen';
@@ -10,80 +11,105 @@ class ButtonScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Botones + Material 3'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            const _SubTitle(
-              icon: Icons.check,
-              title: 'Text Button',
-            ),
-            const SizedBox(height: 10),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Soy un TextButton'),
-            ),
-            const _SubTitle(
-              icon: Icons.check,
-              title: 'Outlined Button',
-            ),
-            const SizedBox(height: 10),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text('Soy un OutlinedButton'),
-            ),
-            const SizedBox(height: 20),
-            const _SubTitle(
-              icon: Icons.check,
-              title: 'Elevated Button',
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Soy un ElevatedButton'),
-            ),
-
-            // Icon Button
-            const SizedBox(height: 20),
-            const _SubTitle(
-              icon: Icons.check,
-              title: 'Icon Button',
-            ),
-            const SizedBox(height: 10),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-            ),
-          ],
-        ),
+      body: const _ButtonsView(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.arrow_back_ios_new_outlined),
+        onPressed: () => context.pop(),
       ),
     );
   }
 }
 
-class _SubTitle extends StatelessWidget {
-  const _SubTitle({
-    required this.icon,
-    required this.title,
-  });
-
-  final IconData icon;
-  final String title;
+class _ButtonsView extends StatelessWidget {
+  const _ButtonsView();
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon, size: 25),
-        const SizedBox(width: 10),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w300,
+    const textStyle = TextStyle(
+      fontWeight: FontWeight.w300,
+      fontSize: 20,
+    );
+
+    final colors = Theme.of(context).colorScheme;
+
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+        child: SizedBox(
+          child: Wrap(
+            spacing: 20,
+            alignment: WrapAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => {},
+                child: const Text(
+                  'Elevated',
+                  style: textStyle,
+                ),
+              ),
+              const ElevatedButton(
+                onPressed: null,
+                child: Text(
+                  'Elevated Disabled',
+                  style: textStyle,
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: () => {},
+                label: const Text(
+                  'Elevated Icon',
+                  style: textStyle,
+                ),
+                icon: const Icon(Icons.check),
+              ),
+              FilledButton(
+                onPressed: () {},
+                child: const Text('Filled', style: textStyle),
+              ),
+              FilledButton.icon(
+                onPressed: () {},
+                label: const Text('Filled Icon', style: textStyle),
+                icon: const Icon(Icons.lock),
+              ),
+              FilledButton.tonal(
+                onPressed: () {},
+                child: const Text('Filled Tonal', style: textStyle),
+              ),
+              FilledButton.tonalIcon(
+                onPressed: () {},
+                label: const Text('Filled Tonal Icon', style: textStyle),
+                icon: const Icon(Icons.lock),
+              ),
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Outlined', style: textStyle),
+              ),
+              OutlinedButton.icon(
+                onPressed: () {},
+                label: const Text('Outlined', style: textStyle),
+                icon: const Icon(Icons.remove_red_eye),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Text', style: textStyle),
+              ),
+              TextButton.icon(
+                onPressed: () {},
+                label: const Text('Text', style: textStyle),
+                icon: const Icon(Icons.check_box),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.headphones),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(colors.primary),
+                    iconColor: const MaterialStatePropertyAll(Colors.white)),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
