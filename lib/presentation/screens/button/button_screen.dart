@@ -99,14 +99,49 @@ class _ButtonsView extends StatelessWidget {
                 label: const Text('Text', style: textStyle),
                 icon: const Icon(Icons.check_box),
               ),
+
+              //Custom Button
+              const CustomButton(),
+
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.headphones),
                 style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(colors.primary),
-                    iconColor: const MaterialStatePropertyAll(Colors.white)),
+                  backgroundColor: MaterialStatePropertyAll(colors.primary),
+                  iconColor: const MaterialStatePropertyAll(Colors.white),
+                ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: () {},
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Text(
+              'Hola mundo',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w300,
+                fontSize: 20,
+              ),
+            ),
           ),
         ),
       ),
