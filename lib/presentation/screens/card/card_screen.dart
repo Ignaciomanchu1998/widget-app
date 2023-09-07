@@ -44,6 +44,19 @@ class _CardView extends StatelessWidget {
               label: card["label"],
             ),
           ),
+          ...cards.map(
+            (card) => _CardItem3(
+              elevation: card["elevation"],
+              label: card["label"],
+            ),
+          ),
+          ...cards.map(
+            (card) => _CardItem4(
+              elevation: card["elevation"],
+              label: card["label"],
+            ),
+          ),
+          const SizedBox(height: 100)
         ],
       ),
     );
@@ -122,6 +135,86 @@ class _CardItem2 extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _CardItem3 extends StatelessWidget {
+  const _CardItem3({
+    required this.label,
+    required this.elevation,
+  });
+
+  final String label;
+  final double elevation;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Card(
+      color: colors.surfaceVariant,
+      elevation: elevation,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(label),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CardItem4 extends StatelessWidget {
+  const _CardItem4({
+    required this.label,
+    required this.elevation,
+  });
+
+  final String label;
+  final double elevation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      elevation: elevation,
+      child: Stack(
+        children: [
+          // Todo: add image
+          Image.network(
+            'https://picsum.photos/id/0/600/250',
+            height: 350,
+            fit: BoxFit.cover,
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
