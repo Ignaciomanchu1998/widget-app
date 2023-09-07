@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/presentation/screens/button/button_screen.dart';
+import 'package:widgets_app/presentation/screens/card/card_screen.dart';
 
 class MenuItem {
   final String title;
@@ -18,13 +20,13 @@ const appMenuItems = <MenuItem>[
   MenuItem(
     title: 'Botones',
     subTitle: 'A button with a filled background color',
-    route: '/buttons',
+    route: ButtonScreen.name,
     icon: Icons.radio_button_checked,
   ),
   MenuItem(
     title: 'Tarjetas',
     subTitle: 'A button with a outlined border',
-    route: '/card',
+    route: CardScreen.name,
     icon: Icons.square,
   ),
 ];
