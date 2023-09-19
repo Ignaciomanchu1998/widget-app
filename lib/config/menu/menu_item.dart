@@ -29,4 +29,10 @@ const appMenuItems = <MenuItem>[
     route: CardScreen.name,
     icon: Icons.square,
   ),
+  MenuItem(
+    title: 'Progress indicators',
+    subTitle: 'Generales y controlados',
+    route: '/progress',
+    icon: Icons.refresh_rounded,
+  ),
 ];
