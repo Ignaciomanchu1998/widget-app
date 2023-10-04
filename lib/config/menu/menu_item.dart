@@ -35,4 +35,10 @@ const appMenuItems = <MenuItem>[
     route: '/progress',
     icon: Icons.refresh_rounded,
   ),
+  MenuItem(
+    title: 'Snackbars y Dialogs',
+    subTitle: 'Notificaciones en la parte inferior de la pantalla',
+    route: '/snackbars',
+    icon: Icons.notification_add,
+  ),
 ];
