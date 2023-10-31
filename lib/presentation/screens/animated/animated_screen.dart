@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'dart:math' show Random;
 
@@ -26,19 +24,17 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
   }
 
   void _change() {
-    Timer.periodic(const Duration(milliseconds: 1000), (timer) {
-      final random = Random();
-      _width = random.nextInt(300) + 50;
-      _height = random.nextInt(300) + 50;
-      _color = Color.fromRGBO(
-        random.nextInt(256),
-        random.nextInt(256),
-        random.nextInt(256),
-        1,
-      );
-      _borderRadius = BorderRadius.circular(random.nextInt(100).toDouble());
-      setState(() {});
-    });
+    final random = Random();
+    _width = random.nextInt(300) + 50;
+    _height = random.nextInt(300) + 50;
+    _color = Color.fromRGBO(
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),
+      1,
+    );
+    _borderRadius = BorderRadius.circular(random.nextInt(100).toDouble());
+    setState(() {});
   }
 
   @override
