@@ -47,4 +47,10 @@ const appMenuItems = <MenuItem>[
     route: '/animated',
     icon: Icons.check_box_outline_blank,
   ),
+  MenuItem(
+    title: 'Checkboxes',
+    subTitle: 'Checkboxes',
+    route: '/ui-controls',
+    icon: Icons.check_box,
+  ),
 ];
