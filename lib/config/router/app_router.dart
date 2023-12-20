@@ -40,5 +40,10 @@ final appRouter = GoRouter(
       name: UIControlsScreen.name,
       builder: (context, state) => const UIControlsScreen(),
     ),
+    GoRoute(
+      path: '/page-view',
+      name: PageViewScreen.name,
+      builder: (context, state) => const PageViewScreen(),
+    ),
   ],
 );

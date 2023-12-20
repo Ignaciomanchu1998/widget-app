@@ -53,4 +53,10 @@ const appMenuItems = <MenuItem>[
     route: '/ui-controls',
     icon: Icons.check_box,
   ),
+  MenuItem(
+    title: 'Páginas',
+    subTitle: 'Para mostrar los pasos de la app y etc.',
+    route: '/page-view',
+    icon: Icons.pages,
+  ),
 ];
